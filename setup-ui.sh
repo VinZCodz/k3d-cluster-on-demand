@@ -1,25 +1,25 @@
 #!/bin/bash
 set -e
 
-echo "🎡 Installing Official Kubernetes Dashboard (v3)..."
+echo "🖌️ Drawing the Landscape: Installing Headlamp UI..."
 
-helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
+helm repo add headlamp https://kubernetes-sigs.github.io/headlamp/
 helm repo update
 
-helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard \
-  --namespace kubernetes-dashboard --create-namespace \
-  --set api.service.type=NodePort \
-  --set api.service.nodePort=30090 \
-  --set api.extraArgs="{--enable-skip-login,--disable-settings-authorizer}" \
-  --set authMode=none
-  
-# Grant Permissions: dashboard-auth account to cluster-admin.
-kubectl create clusterrolebinding dashboard-admin-sa \
+helm upgrade --install headlamp headlamp/headlamp \
+  --namespace headlamp --create-namespace \
+  --set service.type=NodePort \
+  --set service.nodePort=30090
+
+kubectl create sa headlamp-admin -n headlamp || true
+kubectl create clusterrolebinding headlamp-admin-binding \
   --clusterrole=cluster-admin \
-  --serviceaccount=kubernetes-dashboard:kubernetes-dashboard-auth || true
+  --serviceaccount=headlamp:headlamp-admin || true
 
 echo "------------------------------------------------------------"
 echo "✅ SUCCESS: Official Dashboard is deployed."
-echo "🌐 Access: Port 9090 (via your Codespaces Ports tab)."
-echo "🚀 Action: On the login screen, simply click the 'SKIP' button."
+echo "🚀 UI is launching! Look for Port 9090 in your Ports tab."
+echo "🔑 USE THIS TOKEN TO LOGIN:"
+echo "------------------------------------------------------------"
+kubectl create token headlamp-admin -n headlamp --duration=24h
 echo "------------------------------------------------------------"
