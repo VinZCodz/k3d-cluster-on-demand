@@ -1,7 +1,7 @@
 apiVersion: k3d.io/v1alpha5
 kind: Simple
 metadata:
-  name: landscape-cluster
+  name: vinzcodz-cluster
 
 servers: 1 # The Control Plane (API Server, Scheduler, SQLite DB etc.)
 agents: 2  # The Worker Nodes (pods, kubelet)
