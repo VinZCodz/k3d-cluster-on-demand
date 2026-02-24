@@ -1,6 +1,6 @@
 {
     "name": "k3d-landscape-on-demand",
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "image": "mcr.microsoft.com/devcontainers/base:1-ubuntu-22.04",
 
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:1": {
