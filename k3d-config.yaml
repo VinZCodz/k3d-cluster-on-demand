@@ -1,0 +1,26 @@
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: landscape-cluster
+
+servers: 1 # The Control Plane (API Server, Scheduler, SQLite DB etc.)
+agents: 2  # The Worker Nodes (pods, kubelet)
+
+# Pinning version for stability, change to latest, if needed.
+image: rancher/k3s:v1.30.0-k3s1 
+
+ports:
+  # Ingress: Map localhost:8080 to K8s LoadBalancer port 80. k3d's Nginx Load Balancer that sits in front of the 3 node cluster.
+  - port: 8080:80 
+    nodeFilters:
+      - loadbalancer
+
+options:
+  k3d:
+    wait: true # Don't return until the cluster is ready
+    timeout: "60s"
+  k3s:
+    extraArgs:
+      - arg: --disable=traefik # install own CNI/Ingress later
+        nodeFilters:
+          - server:*
