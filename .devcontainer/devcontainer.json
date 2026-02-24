@@ -1,0 +1,26 @@
+{
+    "name": "K3d Landscape on Demand",
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+            "version": "latest",
+            "helm": "latest",
+            "minikube": "none" //Turning this k8s flavour off! I'm doing k3d!
+        }
+    },
+
+    "forwardPorts": [8080, 9090], //Port 8080 for cluster apps, and 9090 for Headlamp UI.
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-kubernetes-tools.vscode-kubernetes-tools",
+                "redhat.vscode-yaml"
+            ]
+        }
+    }
+}
