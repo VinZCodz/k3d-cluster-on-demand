@@ -10,10 +10,15 @@ agents: 2  # The Worker Nodes (pods, kubelet)
 image: rancher/k3s:v1.30.0-k3s1 
 
 ports:
-  # Ingress: Map localhost:8080 to K8s LoadBalancer port 80. k3d's Nginx Load Balancer that sits in front of the 3 node cluster.
+  # APP TRAFFIC: Map Codespace 8080 -> k3d LoadBalancer Port 80. This Load Balancer sits in front of the 3 node cluster.
   - port: 8080:80 
     nodeFilters:
       - loadbalancer
+
+  # UI TRAFFIC: Map Codespace 9090 -> NodePort 30090 on the Control Plane
+  - port: 9090:30090
+    nodeFilters:
+      - server:0 # Master Node, the Control Plane
 
 options:
   k3d:
@@ -21,6 +26,6 @@ options:
     timeout: "60s"
   k3s:
     extraArgs:
-      - arg: --disable=traefik # install own CNI/Ingress later
+      - arg: --disable=traefik # Disabled the default traefik ingress. Install own CNI/Ingress later.
         nodeFilters:
           - server:*
