@@ -17,8 +17,8 @@
     "onCreateCommand": "curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash",
 
     // Then create the k3d cluster with pre-configurations (I've used my user name, change if needed!) and UI Setup.
-    "postCreateCommand": "k3d cluster create vinzcodz-cluster --config k3d-config.yaml",
-
+    "postCreateCommand": "k3d cluster create vinzcodz-cluster --config k3d-config.yaml && sleep 10 && bash setup-ui.sh",
+    
     "forwardPorts": [8080, 9090], //Port 8080 for cluster apps, and 9090 for UI.
 
     "customizations": {
