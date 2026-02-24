@@ -64,12 +64,20 @@ _All other ```kubectl```..._
 
 - Helm Ready: Native support for Helm charts to deploy your apps instantly, remote!
 
+- Work in Progress: I haven't added Nginx Load Balancer support yet, but improvements are already underway!
+
+---
 
 **Use for Dev | Test | CI/CD Actions | Practice | Basically a throw away cluster after use!**
 
-<img width="400" height="100" alt="image" src="https://github.com/user-attachments/assets/623c8884-bf88-4bac-9c6a-3410abc6a8d0" />
+---
+
+## 🤝 Contribute & Support
+
+Found a bug? Nothing is perfect! Please report it or raise a PR—I’ll review it as soon as possible. If this helped your workflow, feel free to Star ⭐ and Fork 🍴 the repo to show your support!
 
 _Go ahead, give it a spin! 🚀_
 
+<img width="400" height="100" alt="image" src="https://github.com/user-attachments/assets/623c8884-bf88-4bac-9c6a-3410abc6a8d0" />
 
 
