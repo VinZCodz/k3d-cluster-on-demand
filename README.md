@@ -2,11 +2,11 @@
 
 **Instant 3-node Kubernetes (k3d) cluster inside your GitHub Codespaces.**
 
-## ⚡ Quick Start (The "I'm in a hurry" version)
+## ⚡ Quick Start
 
-- Press ```,``` (comma) on this repo --> Choose the 2-core free offering. 
+- Press ```,``` (comma) on this repo --> Choose the ```2-core``` free offering. 
 
-_Boom! Your cluster is ready under 5 min on Port 9090._
+_Boom! Your cluster is ready in minutes on Port 9090._
 
 _That all!_
 
@@ -15,7 +15,7 @@ _That all!_
 </p>
 
 
-Stop wasting time on local setup. A fully functional, multi-node cluster with a pre-configured UI in minutes. Done with your work? "throw-it-away"! Delete the codespace! Done clean, hassle free, optimized for the GitHub free tier.
+Stop wasting time on local setup. A fully functional, multi-node cluster with a pre-configured UI in minutes. Done with your work? "throw-it-away"! Delete the codespace! clean, hassle free, optimized for the GitHub free tier.
 
 ## 🎨 Visual Landscape (Headlamp UI)
 
@@ -25,7 +25,7 @@ No squinting at ```kubectl get pods``` You have a fully integrated Headlamp UI! 
 
   <img width="1000" height="348" alt="image" src="https://github.com/user-attachments/assets/42d92a6f-c914-4294-8a38-773605b065c5" />
 
-- Secure Auth: I used secure tokens with RBAC. If your token expires or you missed it in the logs, just run:
+- Secure Auth: I've used secure tokens with RBAC. If your token expires or you missed it in the logs, just run:
 
 ```
 kubectl create token headlamp-admin -n headlamp
@@ -43,13 +43,11 @@ The default cluster name is ```vinzcodz-cluster```
 </p>
 Use these to manage your environment:
 
-- Stop Cluster: ```k3d cluster stop <cluster-name>```
+- Stop Cluster: ```k3d cluster stop vinzcodz-cluster```
 
-- Start Cluster: ```k3d cluster start <cluster-name>```
+- Start Cluster: ```k3d cluster start vinzcodz-cluster```
 
-- Check Nodes: ```kubectl get nodes```
-
-_All other ```kubectl```..._
+_Then, regular ```kubectl get nodes``` and all other ```kubectl```..._
 
 
 ## 🎯 Why use this?
