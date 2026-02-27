@@ -16,8 +16,12 @@
     // Install k3d binary.
     "onCreateCommand": "curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash",
 
-    // Then create the k3d cluster with pre-configurations (I've used my user name, change if needed!) and UI Setup.
-    "postCreateCommand": "k3d cluster create vinzcodz-cluster --config k3d-config.yaml && sleep 10 && bash setup-ui.sh",
+    "postCreateCommand": [
+        "k3d cluster create vinzcodz-cluster --config k3d-config.yaml", // k3d cluster with pre-configurations (I've used my user name, change if needed!)
+        "kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.5.1/standard-install.yaml", //Gateway CRDs
+        "sleep 10", // wait for cluster to be configured and CRDs to be applied
+        "bash setup-ui.sh" // UI Install
+      ],
     
     "forwardPorts": [8080, 9090], //Port 8080 for cluster apps, and 9090 for UI.
 
