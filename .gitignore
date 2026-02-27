@@ -1,2 +1,4 @@
 # K3d Cluster Tokens
 .cluster-token.txt
+.secrets.env
+.env
