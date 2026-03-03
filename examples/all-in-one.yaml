@@ -1,0 +1,67 @@
+# 1. THE APP: A simple "Hello World" web server
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+  labels:
+    app: hello-k8s
+spec:
+  replicas: 3 # Two pods to see them "breathing" in the GUI
+  selector:
+    matchLabels:
+      app: hello-k8s
+  template:
+    metadata:
+      labels:
+        app: hello-k8s
+    spec:
+      containers:
+      - name: echo
+        image: elsonpulikkan/echo-pod-name:latest
+        ports:
+        - containerPort: 80
+---
+# 2. THE SERVICE: Internal load balancer for the pods
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  selector:
+    app: hello-k8s
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+---
+# 3. THE GATEWAY: The entry point (Traefik v3)
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: my-gateway
+  namespace: kube-system
+spec:
+  gatewayClassName: traefik
+  listeners:
+  - name: http
+    protocol: HTTP
+    port: 8000 # Traefik's default internal port
+    allowedRoutes:
+      namespaces:
+        from: All
+---
+# 4. THE ROUTE: Maps traffic from Port 8080 to our App
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: app-route
+spec:
+  parentRefs:
+  - name: my-gateway
+    namespace: kube-system
+  rules:
+  - matches:
+    - path: { type: PathPrefix, value: / }
+    backendRefs:
+    - name: web-service
+      port: 80
