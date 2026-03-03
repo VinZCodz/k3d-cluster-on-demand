@@ -10,14 +10,13 @@ _Boom! Your cluster is ready in minutes! GUI on Port 9090._
 
 ## 🎨 Visual Landscape (Headlamp UI)
 
-- UI is ready! Just goto the ```Ports``` tab and click ```Open in Browser 🌐``` at Port 9090. (Refresh browser to configure and load)
-- UI should ask for Login token! Find them at ```.cluster-token.txt``` in root.
+- UI is Ready: Go to ```Ports``` > Port 9090 > ```Open in Browser 🌐```. Hit Refresh.
+- Find login token at ```.cluster-token.txt``` in root.
   
 ## 🚀 Deploy your "Hello World" App in 30 Seconds inside cluster!
 
 - Deploy the Demo App from examples ```kubectl apply -f examples/all-in-one.yaml```
-- Check Running pods ```kubectl get pods``` 
-- Head to Port 8080 via Ports tab.
+- Check Running pods ```kubectl get pods``` & Head to ```Port 8080```
 
 _Done! You wasted no time on local setup. You've a fully working Multi-Node cluster, up and running!_
 
@@ -42,14 +41,9 @@ _Done! You wasted no time on local setup. You've a fully working Multi-Node clus
 
 ## 🛠️ Handy Commands
 
-The default cluster name is ```vinzcodz-cluster``` 
-
-Use these to manage your environment:
-
-- Stop Cluster: ```k3d cluster stop vinzcodz-cluster```
-
-- Start Cluster: ```k3d cluster start vinzcodz-cluster```
-
+The default cluster name is ```vinzcodz-cluster```.
+- To Stop Cluster: ```k3d cluster stop vinzcodz-cluster```
+- To Start Cluster: ```k3d cluster start vinzcodz-cluster```
 - If your token expires or you missed it, just run:
 
 ```
