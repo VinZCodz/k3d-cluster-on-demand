@@ -6,7 +6,7 @@ metadata:
 servers: 1 # The Control Plane (API Server, Scheduler, SQLite DB etc.)
 agents: 2  # The Worker Nodes (pods, kubelet)
 
-# Pinning version for stability. With Traefik v3.6+ (with Gateway API enabled)
+# Pinning version for stability. With Traefik v3.6+ (with Gateway API)
 image: rancher/k3s:v1.35.1-k3s1
 
 ports:
