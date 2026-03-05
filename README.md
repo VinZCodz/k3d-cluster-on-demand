@@ -2,11 +2,19 @@
 
 **Instant 3-node Kubernetes (k3d) cluster inside your GitHub Codespaces.**
 
+<p align="center">
+<img width="400" height="100" alt="image" src="https://github.com/user-attachments/assets/6ad9a1cc-f020-49d3-bc4e-5976480fff28" />
+</p>
+
 ## ⚡ Quick Start
 
 - Should be Logged into Github —> Press ```,``` (comma) on this repo —> Click ```Create new codespace```
 
 _Boom! Your cluster is ready in minutes! GUI on Port 9090._
+
+<p align="center">
+<img width="900" height="100" alt="image" src="https://github.com/user-attachments/assets/9a548cba-821d-4ad4-b895-1b0e716674ed" />
+</p>
 
 ## 🎨 Visual Landscape (Headlamp UI)
 
@@ -14,15 +22,21 @@ _Boom! Your cluster is ready in minutes! GUI on Port 9090._
 - Find login token at ```.cluster-token.txt``` in root.
 
 _Done! You wasted NO time on local setup. You've a fully working Multi-Node cluster, up and running!_
+<p align="center">
+  <img width="900" height="200" alt="image" src="https://github.com/user-attachments/assets/70c1dde7-9526-4c72-91ba-4c018111e191" />
 
-  <img width="1000" height="701" alt="image" src="https://github.com/user-attachments/assets/4d8a1101-bd4d-43df-a042-a28e79242f39" />
+  <img width="900" height="701" alt="image" src="https://github.com/user-attachments/assets/4d8a1101-bd4d-43df-a042-a28e79242f39" />
+</p>
 
 ## 🛜 Modern Networking via Gateway API (Optional)
 North-South traffic is managed through the Kubernetes Gateway API, which is enabled and preconfigured in your cluster. 
 
 - Use the provided example listener: ```kubectl apply -f examples/Gateway.yaml```
 - Or, **create custom Gateway** listeners to define specific ports, protocols, and routing rules for your services.
- 
+<p align="center">
+ <img width="900" height="200" alt="image" src="https://github.com/user-attachments/assets/9a1202ca-b943-4c73-91cc-36cc56fa3213" />
+</p>
+
 ## 🚀 Deploy "Hello World" Demo App in 30 sec inside cluster! (Optional)
 
 - Deploy ```kubectl apply -f examples/all-in-one.yaml```
