@@ -12,16 +12,23 @@ _Boom! Your cluster is ready in minutes! GUI on Port 9090._
 
 - UI is Ready: Go to ```Ports``` > Port 9090 > ```Open in Browser 🌐```. Hit Refresh.
 - Find login token at ```.cluster-token.txt``` in root.
+
+_Done! You wasted NO time on local setup. You've a fully working Multi-Node cluster, up and running!_
+
+  <img width="1000" height="701" alt="image" src="https://github.com/user-attachments/assets/4d8a1101-bd4d-43df-a042-a28e79242f39" />
+
+## 🛜 Modern Networking via Gateway API (Optional)
+North-South traffic is managed through the Kubernetes Gateway API, which is enabled and preconfigured in your cluster. 
+
+- Use the provided example listener: ```kubectl apply -f examples/Gateway.yaml```
+- Or, **create custom Gateway** listeners to define specific ports, protocols, and routing rules for your services.
+ 
+## 🚀 Deploy "Hello World" Demo App in 30 sec inside cluster! (Optional)
+
+- Deploy ```kubectl apply -f examples/all-in-one.yaml```
+- Check Running pods ```kubectl get pods``` & Head to ```Port 8080```. Hello World!
+- **Important!** Delete when done ```kubectl delete -f examples/all-in-one.yaml``` to free the port for your app use.
   
-## 🚀 Deploy your "Hello World" App in 30 Seconds inside cluster!
-
-- Deploy the Demo App from examples ```kubectl apply -f examples/all-in-one.yaml```
-- Check Running pods ```kubectl get pods``` & Head to ```Port 8080```
-
-_Done! You wasted no time on local setup. You've a fully working Multi-Node cluster, up and running!_
-
-<img width="1000" height="701" alt="image" src="https://github.com/user-attachments/assets/4d8a1101-bd4d-43df-a042-a28e79242f39" />
-
 ## 🎯 Why this Template?
 
 - ```Zero-Config```: Skip the hassel of manual setup. Just get to your work!
@@ -44,6 +51,7 @@ _Done! You wasted no time on local setup. You've a fully working Multi-Node clus
 The default cluster name is ```vinzcodz-cluster```.
 - To Stop Cluster: ```k3d cluster stop vinzcodz-cluster```
 - To Start Cluster: ```k3d cluster start vinzcodz-cluster```
+- Cluster/Endpoints frozen: ```docker restart $(docker ps -q)```
 - If your token expires or you missed it, just run:
 
 ```
