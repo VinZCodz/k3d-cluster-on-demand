@@ -87,6 +87,10 @@ Found a bug or have a better way to optimize for 2-core machines? Open an Issue 
   <img width="400" height="80" alt="image" src="https://github.com/user-attachments/assets/026811f7-e209-4062-b3bf-c7aa3255cf02" />
 </p>
 <p align="center">
+  <a href='https://codespaces.new/VinZCodz/k3d-cluster-on-demand'><img src='https://github.com/codespaces/badge.svg' alt='Open in GitHub Codespaces' style='max-width: 100%;'></a>
+</p>
+<p align="center">
   Go ahead, give it a spin! 🚀
 </p>
+
   
